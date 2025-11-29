@@ -38,7 +38,7 @@
     /* right column */
     .card{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);padding:18px}
     .progress{margin-top:8px;background:#f2f5fb;border-radius:999px;height:14px;overflow:hidden}
-    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:0%;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
+    .progress > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent-2));width:100%;border-radius:999px;transition:width 900ms cubic-bezier(.2,.9,.3,1)}
 
     .stats{display:flex;gap:12px;margin-top:12px}
     .stat{flex:1;padding:12px;border-radius:10px;background:linear-gradient(180deg,#fff,#fbfdff);border:1px solid #f0f2f6}
@@ -227,7 +227,13 @@ const activities = [
       const lowest = Math.min(...scores);
 
       document.getElementById('avgScore').textContent = avg + ' / 100';
-      document.getElementById('progressBar').style.width = '100%';
+      
+      // BARRA DE PROGRESO AL 100% - CORREGIDO
+      const progressBar = document.getElementById('progressBar');
+      if (progressBar) {
+        progressBar.style.width = '100%';
+      }
+      
       document.getElementById('completed').textContent = completed;
       document.getElementById('highest').textContent = highest + '/100';
       document.getElementById('lowest').textContent = lowest + '/100';
