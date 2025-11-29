@@ -1,2 +1,0 @@
-# portafolio-progi
-programacion
